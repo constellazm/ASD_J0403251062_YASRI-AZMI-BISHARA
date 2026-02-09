@@ -1,0 +1,10 @@
+BRG001,  Keju, 35
+BRG002,  Susu, 47
+BRG003,  Roti, 50
+BRG004,  AirMineral, 45
+BRG005,  Kopi, 60
+BRG006,  TehBotol, 65
+BRG007,  Matcha, 40
+BRG008,  Wafer, 20
+BRG009,  KeripikPisang, 30
+BRG010, Biskuit, 35
