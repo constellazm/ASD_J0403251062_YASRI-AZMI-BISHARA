@@ -1,0 +1,91 @@
+#--------------------------------------------------------
+# Nama  : Yasri Azmi Bishara
+# NIM   : J0403251062
+# Kelas : TPL A1
+# Latihan Praktikum 1: Implementasikan fungsi untuk menghapus node dengan nilai tertentu
+#--------------------------------------------------------
+
+#-------------------------------------------------------
+# Circular Singly Linked List
+#-------------------------------------------------------
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class CircularSinglyLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None  # Tambahkan pointer tail
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+
+        if not self.head:  # Jika linked list kosong
+            self.head = new_node
+            self.tail = new_node
+            self.tail.next = self.head # Circular link ke dirinya sendiri
+        else:
+            self.tail.next = new_node # Sambungkan tail ke node baru
+            self.tail = new_node # Update tail ke node baru
+            self.tail.next = self.head # Circular link kembali ke head
+            
+    def search(self, key):
+        if not self.head:
+            return False
+        
+        temp = self.head
+        
+        while True:
+            if temp.data == key:
+                return True
+            temp = temp.next
+            if temp == self.head:
+                break
+        
+        return False
+
+    def display(self):
+        if not self.head:
+            print("Link is empty")
+            return
+
+        print("Circular Linked List Traversal:")
+        temp = self.head
+
+        while True:
+            print(temp.data, end=" -> ")
+            temp = temp.next
+            if temp == self.head:
+                break
+
+        print("...(back to head)")
+
+
+# Contoh penggunaan
+cll = CircularSinglyLinkedList()
+cll.insert_at_end(3)
+cll.insert_at_end(5)
+cll.insert_at_end(13)
+cll.insert_at_end(2)
+
+cll.display()
+
+#---------------------------------------------------------------------------------------
+# Latihan Praktikum 1: Implementasikan fungsi untuk menghapus node dengan nilai tertentu
+#---------------------------------------------------------------------------------------
+def delete_node (self, key):
+    temp = self.head
+    if temp and temp.data == key:
+        self.head = temp.next
+        temp = Node
+        return
+    prev = None
+    while temp and temp.data != key:
+        prev = temp
+        temp = temp.next
+    if temp is None:
+        return
+    prev.next = temp.next
+    temp = None
